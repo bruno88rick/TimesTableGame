@@ -9,8 +9,14 @@ import Foundation
 
 @Observable
 class Setting {
-    var settingsItems: SettingsItems
     var showingLoadingSettingsError = false
+    var settingsItems: SettingsItems {
+        didSet {
+            if let encodedSettings = try? JSONEncoder().encode(settingsItems){
+                UserDefaults.standard.set(encodedSettings, forKey: "Settings")
+            }
+        }
+    }
     
     init() {
         if let savedSettings = UserDefaults.standard.data(forKey: "Settings"){

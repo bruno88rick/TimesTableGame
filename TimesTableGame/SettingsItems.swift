@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SettingsItems: Decodable {
+struct SettingsItems: Codable {
     var timesTableOf: Int
     var dificultyLevel: Int
 }
