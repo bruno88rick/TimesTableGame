@@ -19,12 +19,12 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
-        .alert("Erro ao Carregar Configurações", isPresented: $setting.showingLoadingSettingsError) {
+        .alert("Carregar Configurações", isPresented: $setting.showingLoadingSettingsError) {
             Button("Configurar Jogo") {
                 showingSettings = true
             }
         } message: {
-            Text("Não foi possível carregar as configurações do jogo. Configure novamente e salve.")
+            Text("Parece que as configurações do Jogo não foram salvas. Configure agora:")
         }
         .sheet(isPresented: $showingSettings) {
             GameSettings()

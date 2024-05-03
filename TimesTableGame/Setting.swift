@@ -9,6 +9,7 @@ import Foundation
 
 @Observable
 class Setting {
+    var showingSeetingFirtsTime = false
     var showingLoadingSettingsError = false
     var settingsItems: SettingsItems {
         didSet {
