@@ -8,8 +8,7 @@
 import Foundation
 
 @Observable
-class Setting {
-    var showingSeetingFirtsTime = false
+final class Setting {
     var showingLoadingSettingsError = false
     var settingsItems: SettingsItems {
         didSet {
@@ -26,7 +25,7 @@ class Setting {
                 return
             }
         }
-        settingsItems = SettingsItems(timesTableOf: 2, dificultyLevel: 1)
+        settingsItems = SettingsItems(timesTableOf: 1, dificultyLevel: 1)
         showingLoadingSettingsError = true
     }
 }

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct GameSettings: View {
-    @State private var timesTable = 2
+    @State private var timesTable = 1
     @State private var dificultyLevel = 1
-    var settings = Setting()
+    var setting = Setting()
+    
+    @Environment (\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
@@ -53,14 +55,20 @@ struct GameSettings: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar", systemImage: "") {
-                        
+                        setting.settingsItems.timesTableOf = timesTable
+                        setting.settingsItems.dificultyLevel = dificultyLevel
+                        presentationMode.wrappedValue.dismiss()
                     }
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancelar", systemImage: "") {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     }
                 }
+            }
+            .onAppear() {
+                dificultyLevel = setting.settingsItems.dificultyLevel
+                timesTable = setting.settingsItems.timesTableOf
             }
         }
     }
