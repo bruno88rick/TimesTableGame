@@ -12,10 +12,25 @@ final class Setting {
     var showingLoadingSettingsError = false
     var settingsItems: SettingsItems {
         didSet {
-            if let encodedSettings = try? JSONEncoder().encode(settingsItems){
-                UserDefaults.standard.set(encodedSettings, forKey: "Settings")
+            save()
+        }
+    }
+    
+    func save() {
+        if let encodedSettings = try? JSONEncoder().encode(settingsItems){
+            UserDefaults.standard.set(encodedSettings, forKey: "Settings")
+        }
+    }
+    
+    func load() {
+        if let savedSettings = UserDefaults.standard.data(forKey: "Settings"){
+            if let decodedSettings = try? JSONDecoder().decode(SettingsItems.self, from: savedSettings) {
+                settingsItems = decodedSettings
+                return
             }
         }
+        settingsItems = SettingsItems(timesTableOf: 1, dificultyLevel: 1)
+        showingLoadingSettingsError = true
     }
     
     init() {
