@@ -15,31 +15,62 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Nível de Dificuldade: \(setting.settingsItems.dificultyLevel) para tabuada de \(setting.settingsItems.timesTableOf)")
-            }
-            .padding()
-            .alert("Carregar Configurações", isPresented: $setting.showingLoadingSettingsError) {
-                Button("Configurar Jogo") {
-                    showingSettings = true
+            ScrollView {
+                VStack(alignment: .center) {
+                    QuestionView()
+                    AnswerView()
                 }
-            } message: {
-                Text("Parece que as configurações do Jogo não foram salvas. Configure agora:")
+                .frame(alignment: .centerLastTextBaseline)
             }
+            .safeAreaInset(edge: .bottom) {
+                ScoreView()
+                    .shadow(radius: 10)
+            }
+            .background(.mediumGreen)
+            .scrollBounceBehavior(.basedOnSize)
             .sheet(isPresented: $showingSettings) {
                 GameSettings(setting: setting)
             }
+            //.edgesIgnoringSafeArea(.le)
             .toolbar() {
-                Button("Settings", systemImage: "gear") {
-                    showingSettings = true
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button() {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gear")
+                            .foregroundColor(.lightYellow)
+                            .shadow(radius: 3)
+                            .accessibilityLabel("Ir para Configurações do Jogo")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading){
+                    HStack(alignment: .center, spacing: 1) {
+                        Group {
+                            Text("Dificuldade:")
+                                .foregroundStyle(.lightYellow)
+                            Image(systemName: "\(dificultyText).circle")
+                                .foregroundColor(.lightGreen)
+                                .accessibilityLabel("Dificuldade \(dificultyText)")
+                        }
+                        .padding(1)
+                        Group {
+                            Text("Tabuada:")
+                                .foregroundStyle(.lightYellow)
+                            Image(systemName: "\(timesTableOf).circle")
+                                .foregroundStyle(.lightGreen)
+                                .accessibilityLabel("Tabuada de \(timesTableOf)")
+                        }
+                    }
                 }
             }
-            .onAppear() {
-                dificultyText = setting.settingsItems.dificultyLevel
-                timesTableOf = setting.settingsItems.timesTableOf
-            }
+        }
+        .onAppear() {
+            dificultyText = setting.settingsItems.dificultyLevel
+            timesTableOf = setting.settingsItems.timesTableOf
+            showingSettings = setting.showingLoadingSettingsError
         }
     }
+    
 }
 
 #Preview {

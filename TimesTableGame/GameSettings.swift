@@ -20,13 +20,13 @@ struct GameSettings: View {
                 Form() {
                     Section("Configurações da Tabuada"){
                         Text("Escolha a tabuada para jogar:")
-                            .font(.title3)
+                            .font(.headline)
                         Stepper("Quero a Tabuada de \(timesTable)", value: $timesTable, in: 2...12)
                     }
                     
                     Section("Configurações de Dificuldade") {
                         Text("Escolha o nível de dificuldade:")
-                            .font(.title3)
+                            .font(.headline)
                         Stepper("Dificuldade Nível \(dificultyLevel)", value: $dificultyLevel, in: 1...3)
                         
                         switch dificultyLevel {
