@@ -20,6 +20,8 @@
 		B6BAFED82B7D216700723209 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFED72B7D216700723209 /* GameSettings.swift */; };
 		B6BAFEDA2B7D2A5E00723209 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */; };
 		B6BAFEDC2B7D2B4800723209 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFEDB2B7D2B4800723209 /* Setting.swift */; };
+		B6C7E0202C105EB1005DE382 /* animalsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7E01F2C105EB1005DE382 /* animalsEnum.swift */; };
+		B6C7E0222C105F0F005DE382 /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7E0212C105F0F005DE382 /* Animals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		B6BAFED72B7D216700723209 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
 		B6BAFEDB2B7D2B4800723209 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		B6C7E01F2C105EB1005DE382 /* animalsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalsEnum.swift; sourceTree = "<group>"; };
+		B6C7E0212C105F0F005DE382 /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			children = (
 				B63510D82C0F9899002AAE41 /* ExtensionsView.swift */,
 				B63510DA2C0F995B002AAE41 /* RoundedCorners.swift */,
+				B6C7E01F2C105EB1005DE382 /* animalsEnum.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 				B63510CF2C0F639A002AAE41 /* QuestionView.swift */,
 				B63510D12C0F65DD002AAE41 /* AnswerView.swift */,
 				B63510D32C0F6929002AAE41 /* ResultView.swift */,
+				B6C7E0212C105F0F005DE382 /* Animals.swift */,
 				B6BAFED72B7D216700723209 /* GameSettings.swift */,
 				B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */,
 				B6BAFEDB2B7D2B4800723209 /* Setting.swift */,
@@ -173,7 +179,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63510DB2C0F995B002AAE41 /* RoundedCorners.swift in Sources */,
+				B6C7E0222C105F0F005DE382 /* Animals.swift in Sources */,
 				B6BAFEDC2B7D2B4800723209 /* Setting.swift in Sources */,
+				B6C7E0202C105EB1005DE382 /* animalsEnum.swift in Sources */,
 				B63510D42C0F6929002AAE41 /* ResultView.swift in Sources */,
 				B63510D62C0F9164002AAE41 /* ScoreView.swift in Sources */,
 				B6BAFECC2B7D20F700723209 /* ContentView.swift in Sources */,
