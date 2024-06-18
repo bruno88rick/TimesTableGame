@@ -11,6 +11,7 @@
 		B63510D62C0F9164002AAE41 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D52C0F9164002AAE41 /* ScoreView.swift */; };
 		B63510D92C0F9899002AAE41 /* ExtensionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D82C0F9899002AAE41 /* ExtensionsView.swift */; };
 		B63510DB2C0F995B002AAE41 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510DA2C0F995B002AAE41 /* RoundedCorners.swift */; };
+		B6A130812C217D2E00B53128 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A130802C217D2E00B53128 /* AppData.swift */; };
 		B6BAFECA2B7D20F700723209 /* TimesTableGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFEC92B7D20F700723209 /* TimesTableGameApp.swift */; };
 		B6BAFECC2B7D20F700723209 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFECB2B7D20F700723209 /* ContentView.swift */; };
 		B6BAFECE2B7D20FB00723209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BAFECD2B7D20FB00723209 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		B63510D52C0F9164002AAE41 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		B63510D82C0F9899002AAE41 /* ExtensionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsView.swift; sourceTree = "<group>"; };
 		B63510DA2C0F995B002AAE41 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		B6A130802C217D2E00B53128 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		B6BAFEC62B7D20F700723209 /* TimesTableGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimesTableGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BAFEC92B7D20F700723209 /* TimesTableGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTableGameApp.swift; sourceTree = "<group>"; };
 		B6BAFECB2B7D20F700723209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				B63510D72C0F9864002AAE41 /* Helpers */,
 				B6BAFEC92B7D20F700723209 /* TimesTableGameApp.swift */,
+				B6A130802C217D2E00B53128 /* AppData.swift */,
 				B6BAFECB2B7D20F700723209 /* ContentView.swift */,
 				B63510D52C0F9164002AAE41 /* ScoreView.swift */,
 				B63510D12C0F65DD002AAE41 /* AnswerView.swift */,
@@ -173,6 +176,7 @@
 				B6BAFEDC2B7D2B4800723209 /* Setting.swift in Sources */,
 				B6C7E0202C105EB1005DE382 /* animalsEnum.swift in Sources */,
 				B63510D62C0F9164002AAE41 /* ScoreView.swift in Sources */,
+				B6A130812C217D2E00B53128 /* AppData.swift in Sources */,
 				B6BAFECC2B7D20F700723209 /* ContentView.swift in Sources */,
 				B63510D22C0F65DD002AAE41 /* AnswerView.swift in Sources */,
 				B6BAFECA2B7D20F700723209 /* TimesTableGameApp.swift in Sources */,
