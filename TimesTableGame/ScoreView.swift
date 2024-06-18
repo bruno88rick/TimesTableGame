@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ScoreView: View {
+    var scoreCorrect: Int
+    var scoreWrong: Int
     var body: some View {
         HStack() {
             Text("Pontuação: ")
@@ -20,7 +22,7 @@ struct ScoreView: View {
                 .bold()
                 .foregroundStyle(.lightGreen)
                 .padding()
-            Text("\(5)")
+            Text("\(scoreCorrect)")
                 .font(.system(size: 20))
                 .bold()
                 .foregroundStyle(.lightGreen)
@@ -30,7 +32,7 @@ struct ScoreView: View {
                 .bold()
                 .foregroundStyle(.mediumRed)
                 .padding()
-            Text("\(4)")
+            Text("\(scoreWrong)")
                 .font(.system(size: 21))
                 .bold()
                 .foregroundStyle(.mediumRed)
@@ -43,5 +45,5 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView()
+    ScoreView(scoreCorrect: 0, scoreWrong: 0)
 }

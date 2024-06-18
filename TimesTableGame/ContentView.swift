@@ -10,24 +10,41 @@ import SwiftUI
 struct ContentView: View {
     @State private var setting = Setting()
     
-    static let allAnimals = [animalsEnum.bear.rawValue, animalsEnum.buffalo.rawValue, animalsEnum.chick.rawValue, animalsEnum.chicken.rawValue, animalsEnum.cow.rawValue, animalsEnum.crocodile.rawValue, animalsEnum.dog.rawValue, animalsEnum.duck.rawValue, animalsEnum.elephant.rawValue, animalsEnum.frog.rawValue]
+    let allAnimals = [animalsEnum.bear.rawValue, animalsEnum.buffalo.rawValue, animalsEnum.chick.rawValue, animalsEnum.chicken.rawValue, animalsEnum.cow.rawValue, animalsEnum.crocodile.rawValue, animalsEnum.dog.rawValue, animalsEnum.duck.rawValue, animalsEnum.elephant.rawValue, animalsEnum.frog.rawValue]
     
-    @State private var animals = allAnimals.shuffled()
+    let allAnimalsName = [animalsNameEnum.bear.rawValue, animalsNameEnum.buffalo.rawValue, animalsNameEnum.chick.rawValue, animalsNameEnum.chicken.rawValue, animalsNameEnum.cow.rawValue, animalsNameEnum.crocodile.rawValue, animalsNameEnum.dog.rawValue, animalsNameEnum.duck.rawValue, animalsNameEnum.elephant.rawValue, animalsNameEnum.frog.rawValue]
     
     @State private var showingSettings = false
+    @State private var showingFinalResult = false
     @State private var gameActive = false
+    
     @State private var dificultyText = 0
     @State private var timesTableOf = 0
-    @State private var numberOfQuestion = 5
-    @State private var questionsArray = [Int]()
+    @State private var numberOfQuestions = 5
     @State private var question = 0
+    @State private var matchNumber = 0
     @State private var correctAnswer = 0
+    @State private var scoreCorrect = 0
+    @State private var scoreWrong = 0
+    
+    @State private var questionsArray = [Int]()
     @State private var arrayAnswer = [Int]()
-    @State private var questionAnimal = animalsNameEnum.frog
     
+    @State var winTheGame = false
     
+    var resultMessage: String {
+        if winTheGame == true {
+            return "Parabéns! Você foi demais. Continue Treinando!"
+        } else {
+            return "Certeza que você deu seu máximo, e estou muito orgulhoso! Vamos tentar novamente pra treinar mais esta tabuada?"
+        }
+    }
     
     var body: some View {
+        
+        let ramdomImageQuestion = Int.random(in: 0..<10)
+        let ramdomImageStart = Int.random(in: 0..<10)
+        
         NavigationStack {
             Spacer()
             ZStack {
@@ -39,13 +56,16 @@ struct ContentView: View {
                     VStack(alignment: .center) {
                         //questionView
                             VStack {
-                                Image(animals[0])
+                                Image(allAnimals[ramdomImageQuestion])
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
                                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                                Text("\(animals[0]) Quer saber!")
-                                    .font(.title2)
+                                Text("\(allAnimalsName[ramdomImageQuestion]) quer aprender!")
+                                    .font(.title3)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.darkGreen)
+                                    .shadow(color: .lightYellow, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                                 
                                 Text("Qual é o resultado de")
                                     .font(.system(size: 24, weight: .heavy).bold())
@@ -79,20 +99,21 @@ struct ContentView: View {
                             .shadow(color: .lightYellow, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         HStack {
                             ForEach (0..<3) { indexNumber in
+                                let ramdonElement = allAnimals.randomElement()
                                 HStack {
                                     Button() {
-                                        
+                                        answerButtonTapped(answerTapped: indexNumber)
                                     } label: {
-                                        AnswerView(answer: arrayAnswer.indices.contains(indexNumber) ? arrayAnswer[indexNumber] : 0, animalImage: Image("bear_square"))
+                                        AnswerView(answer: arrayAnswer.indices.contains(indexNumber) ? arrayAnswer[indexNumber] : 0, animalImage: Image("\(ramdonElement ?? allAnimals[indexNumber])_square"))
                                     }
                                 }
-                                
                             }
                         }
                         Spacer()
                     }
                     .frame(alignment: .centerLastTextBaseline)
                 }
+                
                 ZStack {
                     Rectangle()
                         .ignoresSafeArea()
@@ -101,12 +122,12 @@ struct ContentView: View {
                         startPlaying()
                     } label: {
                         VStack() {
-                            Image(.frogSquare)
+                            Image(allAnimals[ramdomImageStart])
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width:100, height: 40)
                                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            Text("Let`s Start Playing...")
+                            Text("Vamos Jogar? 🎮")
                                 .frame(width: 180, height: 40)
                                 .background(.mediumRed)
                                 .foregroundStyle(.lightYellow)
@@ -117,9 +138,42 @@ struct ContentView: View {
                     }
                 }
                 .hiddenConditionally(isHidden: gameActive)
+                
+                ZStack {
+                    Color(.darkGreen)
+                        .ignoresSafeArea()
+                        
+                    VStack {
+                        Text("\(resultMessage)")
+                            .font(.system(size: 24, weight: .heavy).bold())
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(winTheGame ? .green : .lightGreen)
+                            .padding()
+                        Image(allAnimals[ramdomImageStart])
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+                            .shadow(radius: 5)
+                        Button {
+                            reset()
+                            startPlaying()
+                            showingFinalResult = false
+                        }label: {
+                            Text("Jogar Novamente")
+                                .frame(width: 180, height: 40)
+                                .background(.mediumGreen)
+                                .foregroundStyle(.lightYellow)
+                                .cornerRadius(100, corners: [.bottomLeft, .bottomRight])
+                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        }
+                        .padding()
+                    }
+                    .padding()
+                }
+                .hiddenConditionally(isHidden: !showingFinalResult)
             }
             .safeAreaInset(edge: .bottom) {
-                ScoreView()
+                ScoreView(scoreCorrect: scoreCorrect, scoreWrong: scoreWrong)
                     .shadow(radius: 10)
             }
             .background(.mediumGreen)
@@ -127,11 +181,21 @@ struct ContentView: View {
             .sheet(isPresented: $showingSettings) {
                 GameSettings(setting: setting)
             }
-            //.edgesIgnoringSafeArea(.le)
             .toolbar() {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button() {
+                        reset()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.lightYellow)
+                            .shadow(radius: 3)
+                            .accessibilityLabel("Resetar Game")
+                    }
+                    .hiddenConditionally(isHidden: !gameActive)
+                    
                     Button() {
                         showingSettings = true
+                        reset()
                     } label: {
                         Image(systemName: "gear")
                             .foregroundColor(.lightYellow)
@@ -139,13 +203,13 @@ struct ContentView: View {
                             .accessibilityLabel("Ir para Configurações do Jogo")
                     }
                 }
-                ToolbarItem(placement: .topBarLeading){
+                ToolbarItem(placement: .topBarLeading) {
                     HStack(alignment: .center, spacing: 1) {
                         Group {
                             Text("Dificuldade:")
                                 .foregroundStyle(.lightYellow)
                             Image(systemName: "\(dificultyText).circle")
-                                .foregroundColor(.darkGreen)
+                                .foregroundColor(.lightYellow)
                                 .accessibilityLabel("Dificuldade \(dificultyText)")
                         }
                         .padding(1)
@@ -153,7 +217,7 @@ struct ContentView: View {
                             Text("Tabuada:")
                                 .foregroundStyle(.lightYellow)
                             Image(systemName: "\(timesTableOf).circle")
-                                .foregroundStyle(.darkGreen)
+                                .foregroundStyle(.lightYellow)
                                 .accessibilityLabel("Tabuada de \(timesTableOf)")
                         }
                     }
@@ -174,33 +238,39 @@ struct ContentView: View {
         determineNumberOfQuestion()
         questionsArray = appendQuestionArray()
         match()
-        print(question)
-
     }
     
     func match() {
-        question = questionsArray.randomElement() ?? 0
-        correctAnswer = question * timesTableOf
-        arrayAnswer.removeAll()
-        appendAnwerArray()
-        print(arrayAnswer.count)
-        print(arrayAnswer)
+        if matchNumber <= numberOfQuestions {
+            question = questionsArray.randomElement() ?? 0
+            correctAnswer = question * timesTableOf
+            arrayAnswer.removeAll()
+            appendAnwerArray()
+            matchNumber += 1
+        } else {
+            if scoreCorrect > scoreWrong {
+                winTheGame = true
+            } else {
+                winTheGame = false
+            }
+            showingFinalResult = true
+        }
     }
     
     func determineNumberOfQuestion() {
         switch dificultyText {
-        case 2: numberOfQuestion = 10
-        case 3: numberOfQuestion = 20
-        default: numberOfQuestion = 5
+        case 2: numberOfQuestions = 10
+        case 3: numberOfQuestions = 20
+        default: numberOfQuestions = 5
         }
     }
     
     func appendQuestionArray () -> [Int] {
         var question = [Int]()
-        for i in 1...numberOfQuestion {
+        for i in 1...numberOfQuestions {
             question.append(i)
         }
-        return question.sorted()
+        return question.shuffled()
     }
     
     func appendAnwerArray () {
@@ -208,6 +278,28 @@ struct ContentView: View {
         arrayAnswer.append(question * Int.random(in: 1...5))
         arrayAnswer.append(question * Int.random(in: 5...10))
         arrayAnswer.sort()
+    }
+    
+    func reset() {
+        gameActive = false
+        scoreWrong = 0
+        scoreCorrect = 0
+        question = 0
+        matchNumber = 0
+        questionsArray.removeAll()
+        arrayAnswer.removeAll()
+    }
+    
+    func answerButtonTapped (answerTapped: Int) {
+        if correctAnswer == arrayAnswer[answerTapped] {
+            //retirar item do array de questões se já respondida corretamente
+            //questionsArray.remove(at:)
+            scoreCorrect += 1
+            match()
+        } else {
+            scoreWrong += 1
+            match()
+        }
     }
     
 }

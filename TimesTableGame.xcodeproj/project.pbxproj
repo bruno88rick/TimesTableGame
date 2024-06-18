@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B63510D02C0F639B002AAE41 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510CF2C0F639A002AAE41 /* QuestionView.swift */; };
 		B63510D22C0F65DD002AAE41 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D12C0F65DD002AAE41 /* AnswerView.swift */; };
-		B63510D42C0F6929002AAE41 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D32C0F6929002AAE41 /* ResultView.swift */; };
 		B63510D62C0F9164002AAE41 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D52C0F9164002AAE41 /* ScoreView.swift */; };
 		B63510D92C0F9899002AAE41 /* ExtensionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510D82C0F9899002AAE41 /* ExtensionsView.swift */; };
 		B63510DB2C0F995B002AAE41 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63510DA2C0F995B002AAE41 /* RoundedCorners.swift */; };
@@ -21,13 +19,10 @@
 		B6BAFEDA2B7D2A5E00723209 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */; };
 		B6BAFEDC2B7D2B4800723209 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BAFEDB2B7D2B4800723209 /* Setting.swift */; };
 		B6C7E0202C105EB1005DE382 /* animalsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7E01F2C105EB1005DE382 /* animalsEnum.swift */; };
-		B6C7E0222C105F0F005DE382 /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7E0212C105F0F005DE382 /* Animals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B63510CF2C0F639A002AAE41 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		B63510D12C0F65DD002AAE41 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
-		B63510D32C0F6929002AAE41 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		B63510D52C0F9164002AAE41 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		B63510D82C0F9899002AAE41 /* ExtensionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsView.swift; sourceTree = "<group>"; };
 		B63510DA2C0F995B002AAE41 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
@@ -40,7 +35,6 @@
 		B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItems.swift; sourceTree = "<group>"; };
 		B6BAFEDB2B7D2B4800723209 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		B6C7E01F2C105EB1005DE382 /* animalsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalsEnum.swift; sourceTree = "<group>"; };
-		B6C7E0212C105F0F005DE382 /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +81,7 @@
 				B6BAFEC92B7D20F700723209 /* TimesTableGameApp.swift */,
 				B6BAFECB2B7D20F700723209 /* ContentView.swift */,
 				B63510D52C0F9164002AAE41 /* ScoreView.swift */,
-				B63510CF2C0F639A002AAE41 /* QuestionView.swift */,
 				B63510D12C0F65DD002AAE41 /* AnswerView.swift */,
-				B63510D32C0F6929002AAE41 /* ResultView.swift */,
-				B6C7E0212C105F0F005DE382 /* Animals.swift */,
 				B6BAFED72B7D216700723209 /* GameSettings.swift */,
 				B6BAFED92B7D2A5E00723209 /* SettingsItems.swift */,
 				B6BAFEDB2B7D2B4800723209 /* Setting.swift */,
@@ -179,17 +170,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63510DB2C0F995B002AAE41 /* RoundedCorners.swift in Sources */,
-				B6C7E0222C105F0F005DE382 /* Animals.swift in Sources */,
 				B6BAFEDC2B7D2B4800723209 /* Setting.swift in Sources */,
 				B6C7E0202C105EB1005DE382 /* animalsEnum.swift in Sources */,
-				B63510D42C0F6929002AAE41 /* ResultView.swift in Sources */,
 				B63510D62C0F9164002AAE41 /* ScoreView.swift in Sources */,
 				B6BAFECC2B7D20F700723209 /* ContentView.swift in Sources */,
 				B63510D22C0F65DD002AAE41 /* AnswerView.swift in Sources */,
 				B6BAFECA2B7D20F700723209 /* TimesTableGameApp.swift in Sources */,
 				B63510D92C0F9899002AAE41 /* ExtensionsView.swift in Sources */,
 				B6BAFEDA2B7D2A5E00723209 /* SettingsItems.swift in Sources */,
-				B63510D02C0F639B002AAE41 /* QuestionView.swift in Sources */,
 				B6BAFED82B7D216700723209 /* GameSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
